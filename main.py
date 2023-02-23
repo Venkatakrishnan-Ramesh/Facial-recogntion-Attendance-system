@@ -10,5 +10,5 @@ def home():
     return {"message": "Hello APP"}
 
 @app.get("/predict")
-def predict():
-    return {"message": "Hello APP"}
+async def predict():
+    return {"message": "Hello from predict"}
