@@ -8,7 +8,7 @@ database = {}
 
 # Register endpoint
 @app.post('/register/')
-async def register(name: str, email: str, file: UploadFile):
+async def register(name: str, email: str, file: UploadFile=File()):
     # Read the uploaded image file
     contents = await file.read()
     
