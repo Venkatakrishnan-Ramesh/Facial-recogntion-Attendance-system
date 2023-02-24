@@ -1,6 +1,6 @@
-from typing import Union
-
-from fastapi import FastAPI
+from typing import Optional
+import utils
+from fastapi import FastAPI , File , UploadFile , Request
 
 app = FastAPI()
 
@@ -9,6 +9,7 @@ app = FastAPI()
 def home():
     return {"message": "Hello APP"}
 
-@app.get("/predict")
-async def predict():
-    return {"message": "Hello from predict"}
+@app.post("/predict")
+async def predict(file:UploadFile = File(...)):
+    print(file.file.read())
+    return {"message": "Hello from predict"} 
